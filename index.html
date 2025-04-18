@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FootGear - Premium Sneakers</title>
+    <!-- Add Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Custom styles that are easier to do with CSS */
+        .cart-icon.animate {
+            animation: bounce 0.5s;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+        
+        .product-card img {
+            transition: transform 0.5s;
+        }
+        
+        .product-card:hover img {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body class="text-gray-700 leading-relaxed">
+    <header class="flex justify-between items-center py-4 px-8 bg-white shadow-md sticky top-0 z-50">
+        <div class="logo">
+            <h1 class="text-2xl font-bold text-gray-800">FootGear</h1>
+        </div>
+        <nav>
+            <ul class="flex space-x-6">
+                <li><a href="#home" class="font-medium hover:text-red-500 transition-colors">Home</a></li>
+                <li><a href="#shop" class="font-medium hover:text-red-500 transition-colors">Shop</a></li>
+                <li><a href="#about" class="font-medium hover:text-red-500 transition-colors">About</a></li>
+                <li><a href="#contact" class="font-medium hover:text-red-500 transition-colors">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="cart-icon relative cursor-pointer text-xl">
+            <i class="fas fa-shopping-cart"></i>
+            <span class="cart-count absolute -top-2 -right-2 bg-red-500 text-white rounded-full w-5 h-5 flex justify-center items-center text-xs">0</span>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero h-[80vh] bg-cover bg-center flex items-center px-20 text-white relative" id="home" style="background-image: url('https://images.unsplash.com/photo-1600269452121-4f2416e55c28?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80')">
+            <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+            <div class="relative z-10 max-w-2xl">
+                <h2 class="text-5xl font-bold mb-4">Step Up Your Style</h2>
+                <p class="text-xl mb-8">Discover the latest collection of premium sneakers</p>
+                <a href="#shop" class="btn bg-red-500 text-white px-6 py-3 rounded-md font-bold hover:bg-red-600 transition-colors inline-block">Shop Now</a>
+            </div>
+        </section>
+
+        <section class="featured-products py-20 px-8 text-center" id="shop">
+            <h2 class="text-4xl font-bold mb-12 text-gray-800">Featured Sneakers</h2>
+            <div class="products-container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-8" id="products-container">
+                <!-- Products will be loaded here by JavaScript -->
+            </div>
+        </section>
+
+        <section class="about py-20 px-8 text-center bg-gray-50" id="about">
+            <h2 class="text-4xl font-bold mb-8 text-gray-800">About FootGear</h2>
+            <p class="max-w-4xl mx-auto mb-8">FootGear is your premier destination for the latest and greatest in sneaker fashion. We curate only the finest quality sneakers from top brands around the world.</p>
+        </section>
+
+        <section class="contact py-20 px-8 text-center bg-gray-50" id="contact">
+            <h2 class="text-4xl font-bold mb-8 text-gray-800">Contact Us</h2>
+            <form class="max-w-lg mx-auto flex flex-col gap-4">
+                <input type="text" placeholder="Your Name" class="px-4 py-3 border border-gray-300 rounded-md">
+                <input type="email" placeholder="Your Email" class="px-4 py-3 border border-gray-300 rounded-md">
+                <textarea placeholder="Your Message" class="px-4 py-3 border border-gray-300 rounded-md h-40"></textarea>
+                <button type="submit" class="btn bg-red-500 text-white px-6 py-3 rounded-md font-bold hover:bg-red-600 transition-colors">Send Message</button>
+            </form>
+        </section>
+    </main>
+
+    <div class="cart-modal hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex justify-center items-center" id="cart-modal">
+        <div class="cart-content bg-white p-8 rounded-lg w-11/12 max-w-4xl max-h-[80vh] overflow-y-auto relative">
+            <span class="close-cart absolute top-4 right-6 text-2xl cursor-pointer">&times;</span>
+            <h2 class="text-3xl font-bold mb-6">Your Cart</h2>
+            <div class="cart-items my-4" id="cart-items">
+                <!-- Cart items will be loaded here -->
+            </div>
+            <div class="cart-total text-right mt-4 pt-4 border-t-2 border-gray-200">
+                <h3 class="text-xl font-bold">Total: $<span id="cart-total">0</span></h3>
+                <button class="btn checkout-btn bg-red-500 text-white px-6 py-3 rounded-md font-bold hover:bg-red-600 transition-colors mt-4">Checkout</button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="text-center py-8 bg-gray-800 text-white">
+        <p>&copy; 2023 FootGear. All rights reserved.</p>
+    </footer>
+
+    <script src="products.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
